@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>단어 맞추기 게임</title>
+<style>
+#countBox{width: 200px; height: 50px; background-color: pink} 
+#answerBox{width: 200px; height: 50px; background-color: skyblue}
+img{width: 300px ; height: 300px}
+</style>
+</head>
+<body>
+
+<h3>과일의 이름을 맞추어 보세요</h3>
+<hr>
+<h4>정답을 맞추셨으면 그림을 클릭해 다음 그림으로 넘어가세요!</h4>
+<img src="peach.jpg" id="peach" onclick="changeImg()" 
+style="border: 7px; border-color: sienna; border-style: outset" alt="peach">
+
+    <div id="countBox"></div>
+    <div id="answerBox"></div><br>
+    <input type="text" value="" id="textBox"><br>
+    <button id="btn" onclick="countAnswer()">정답 제출하기</button>
+
+
+<script>
+
+var answerCount = 0;
+var answerBox = document.getElementById("answerBox")
+var countBox = document.getElementById("countBox")
+var answerGroup = new Array('복숭아', '아보카도', '사과', '수박','키위')
+function countAnswer(){
+    var text = document.getElementById("textBox").value
+    if(text == answerGroup[0]){
+        answerBox.innerHTML = "정답입니다."
+        answerGroup.splice(0,1)
+        answerCount +=1
+        countBox.innerHTML = "맞춘 정답의 개수: " + answerCount + " 개"
+    }else{
+        answerBox.innerHTML = "틀렸습니다. 다시 도전!"
+    }
+}
+var clickCount = 0; 
+function changeImg(){
+var image = document.getElementById("peach")   
+    if(clickCount == 0){
+    image.src = "avocado.jpg"
+    }else if(clickCount ==1){
+    image.src = "apple.jpg"
+    }else if(clickCount ==2){
+    image.src = "watermelon.jpg"
+    }else if(clickCount ==3){
+    image.src = "kiwi.jpg"
+    }
+    clickCount +=1 
+}
+</script>
+</body>
+</html>
