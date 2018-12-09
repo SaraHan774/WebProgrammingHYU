@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>image game</title>
+<style>
+table{border: 1px solid blue;
+border-collapse: collapse;} 
+td{border: 1px; width: 100px; height: 100px; padding: 0px;} 
+</style>
+<script>
+var select = 0; 
+var img = new Image(); 
+img.src = "rb.jpg"; //미리 로딩 
+function set(){
+    moveImage(document.images[0]); //초기 문서가 로드될 때 임의로 셀을 선택하고 이미지 출력 
+}
+function moveImage(obj){
+ obj.src = ""; //현재 img에 보여질 이미지 제거 
+ obj.style.visibility = "hidden"; 
+ select = Math.floor(Math.random()*15); 
+ alert(select + " 번 박스로 도망간다!")
+ document.images[select].src = img.src;
+ document.images[select].style.visibility = "visible"
+ }
+
+</script>
+</head>
+<body onload="set()">
+    <h3>마우스 클릭 연습</h3>
+    <hr>
+    <table>
+        <tr>
+            <td><img src="" onclick="moveImage(this)">0</td>
+            <td><img src="" onclick="moveImage(this)">1</td>
+            <td><img src="" onclick="moveImage(this)">2</td>
+            <td><img src="" onclick="moveImage(this)">3</td>
+            <td><img src="" onclick="moveImage(this)">4</td>
+        </tr>
+        <tr>
+            <td><img src="" onclick="moveImage(this)">5</td>
+            <td><img src="" onclick="moveImage(this)">6</td>
+            <td><img src="" onclick="moveImage(this)">7</td>
+            <td><img src="" onclick="moveImage(this)">8</td>
+            <td><img src="" onclick="moveImage(this)">9</td>
+        </tr>
+        <tr>
+            <td><img src="" onclick="moveImage(this)">10</td>
+            <td><img src="" onclick="moveImage(this)">11</td>
+            <td><img src="" onclick="moveImage(this)">12</td>
+            <td><img src="" onclick="moveImage(this)">13</td>
+            <td><img src="" onclick="moveImage(this)">14</td>
+        </tr>
+    </table>
+    
+</body>
+</html>
